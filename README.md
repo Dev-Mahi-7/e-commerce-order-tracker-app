@@ -155,7 +155,7 @@ npm install
 npm run dev
 ```
 
-👉 Open: http://localhost:3000/dashboard
+👉 Open: http://localhost:3000
 
 ---
 
@@ -199,8 +199,8 @@ All logic and implementation were understood and validated before usage.
 
 ## 📬 Submission Details
 
-* GitHub Repo: (Add link)
-* Live Demo: (Add Vercel link)
+* GitHub Repo: https://github.com/Dev-Mahi-7/e-commerce-order-tracker-app
+* Live Demo: https://e-commerce-order-tracker-app.vercel.app/
 
 
 ---
