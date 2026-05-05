@@ -1,36 +1,219 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 E-commerce Order Tracker Dashboard
 
-## Getting Started
+A simple **full-stack ready frontend dashboard** built using Next.js that displays order data with summary insights.
+Currently, it uses a public API for development and simulates backend logic, making it easy to switch to a real API later.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Live Demo
+
+👉 (Add your Vercel link here)
+
+---
+
+## 📦 Tech Stack
+
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **Data Source:** DummyJSON API (for development)
+
+---
+
+## 🧠 Project Overview
+
+This project is part of a full-stack assessment where:
+
+* Backend (Google Apps Script) will act as an API
+* Frontend (Next.js) consumes the API and displays data
+
+👉 Currently, backend is simulated on the frontend for faster development.
+
+---
+
+## 🔄 Data Flow
+
+```text
+DummyJSON API → Data Transformation → UI Dashboard
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 Later:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+Google Apps Script API → UI Dashboard
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚙️ Features
 
-To learn more about Next.js, take a look at the following resources:
+### ✅ Summary Cards
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Total Orders
+* Average Order Value
+* Shipped Orders
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ✅ Orders Table
 
-## Deploy on Vercel
+* Displays all orders
+* Includes:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  * Product Title
+  * Price
+  * Shipping Cost
+  * Order Status
+  * Total Cost
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### ✅ Search Functionality
+
+* Search orders by product title
+
+### ✅ Sorting
+
+* Sort by price (ascending/descending)
+
+### ✅ UI States
+
+* Loading state
+* Error state
+* Empty state
+
+---
+
+## 🔁 Data Transformation Logic
+
+Since backend is not yet integrated, transformation is handled on frontend:
+
+* **Shipping Cost**
+
+  ```
+  price > 100 ? 10 : 5
+  ```
+
+* **Order Status**
+
+  ```
+  id % 3 === 0 → Shipped  
+  id % 3 === 1 → Processing  
+  else → Pending  
+  ```
+
+* **Total Cost**
+
+  ```
+  totalCost = price + shippingCost
+  ```
+
+---
+
+## 📊 Summary Calculations
+
+* **Total Orders** → Total number of items
+* **Average Order Value** → Average of totalCost
+* **Shipped Orders** → Count where status = "Shipped"
+
+---
+
+## 🔐 API Integration (Future Ready)
+
+When backend (Google Apps Script) is ready:
+
+```ts
+fetch("YOUR_GAS_API_URL", {
+  method: "POST",
+  body: JSON.stringify({
+    accessToken: "secureToken"
+  })
+});
+```
+
+---
+
+## 📁 Project Structure
+
+```
+/app
+  /dashboard
+    page.tsx
+/components
+  SummaryCard.tsx
+  OrdersTable.tsx
+/lib
+  api.ts
+/types
+  order.ts
+```
+
+---
+
+## 🛠️ Getting Started
+
+```bash
+git clone <your-repo-link>
+cd order-tracker
+npm install
+npm run dev
+```
+
+👉 Open: http://localhost:3000/dashboard
+
+---
+
+## ⚖️ Key Decisions
+
+* Used **component-based architecture** for reusability
+* Kept **data layer separate** (`/lib/api.ts`)
+* Simulated backend logic on frontend for flexibility
+* Focused on **clean UI and functionality over heavy styling**
+
+---
+
+## 🔄 Trade-offs
+
+* Data transformation is currently on frontend (temporary)
+* No pagination implemented (API size is small)
+* Basic sorting implemented (can be extended)
+
+---
+
+## 📌 Assumptions
+
+* Each product is treated as an order
+* Static shipping rules are applied
+* No authentication system beyond accessToken
+
+---
+
+## 🤖 Use of LLM
+
+Yes, LLM was used to:
+
+* Structure the project
+* Optimize transformation logic
+* Improve code readability
+
+All logic and implementation were understood and validated before usage.
+
+
+---
+
+## 📬 Submission Details
+
+* GitHub Repo: (Add link)
+* Live Demo: (Add Vercel link)
+
+
+---
+
+## 🙌 Final Notes
+
+This project focuses on:
+
+* Clean architecture
+* Data transformation
+* API readiness
+* Real-world frontend patterns
+
+---
+
+**Made with ❤️ using Next.js**
