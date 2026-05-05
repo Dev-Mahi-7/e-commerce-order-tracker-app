@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import SummaryCard from "@/components/SummaryCard";
 import OrdersTable from "@/components/OrdersTable";
-import { fetchOrders } from "@/components/lib/api";
+import { fetchOrders } from "@/lib/api";
 
 export default function DashboardContainer() {
   const [data, setData] = useState<any>(null);
