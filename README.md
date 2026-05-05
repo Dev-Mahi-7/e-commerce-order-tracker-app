@@ -7,7 +7,7 @@ Currently, it uses a public API for development and simulates backend logic, mak
 
 ## 🚀 Live Demo
 
-👉 (Add your Vercel link here)
+👉 https://e-commerce-order-tracker-app.vercel.app/
 
 ---
 
